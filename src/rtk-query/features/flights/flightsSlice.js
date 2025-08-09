@@ -12,10 +12,10 @@ const flightsSlice = createSlice({
   initialState,
   reducers: {
     getOrigin: (state, action) => {
-      state.origin = action.payload;
+      state.origin = action.payload.toUpperCase();
     },
     getdestination: (state, action) => {
-      state.destination = action.payload;
+      state.destination = action.payload.toUpperCase();
     },
     getdepartureDate: (state, action) => {
       state.departureDate = action.payload;

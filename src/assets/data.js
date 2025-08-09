@@ -2498,46 +2498,165 @@ export const locations = [
   { name: "Uaboe", country: "Nauru" },
 ];
 
-
 export const faqData = [
   {
     question: "How do I search for the best flight deals?",
-    answer: "Use our flexible date search to compare prices across different dates. Set up price alerts for your preferred routes and book during off-peak seasons for maximum savings."
+    answer:
+      "Use our flexible date search to compare prices across different dates. Set up price alerts for your preferred routes and book during off-peak seasons for maximum savings.",
   },
   {
     question: "Can I filter flights by airline preferences?",
-    answer: "Yes, you can filter results by specific airlines, alliance partners, flight duration, number of stops, and departure times to find flights that match your preferences."
+    answer:
+      "Yes, you can filter results by specific airlines, alliance partners, flight duration, number of stops, and departure times to find flights that match your preferences.",
   },
   {
     question: "What's the best time to book international flights?",
-    answer: "Generally, book international flights 2-3 months in advance for the best deals. For domestic flights, 1-2 months ahead is usually optimal. Tuesday and Wednesday departures are often cheaper."
+    answer:
+      "Generally, book international flights 2-3 months in advance for the best deals. For domestic flights, 1-2 months ahead is usually optimal. Tuesday and Wednesday departures are often cheaper.",
   },
   {
     question: "Do you offer multi-city flight bookings?",
-    answer: "Our multi-city search allows you to plan complex itineraries with multiple destinations. You can add up to 6 cities and customize your travel dates for each leg."
+    answer:
+      "Our multi-city search allows you to plan complex itineraries with multiple destinations. You can add up to 6 cities and customize your travel dates for each leg.",
   },
   {
     question: "How do price alerts work?",
-    answer: "Set up price alerts for your desired routes and we'll notify you via email or push notification when prices drop. You can track multiple routes simultaneously and set your preferred price threshold."
+    answer:
+      "Set up price alerts for your desired routes and we'll notify you via email or push notification when prices drop. You can track multiple routes simultaneously and set your preferred price threshold.",
   },
   {
     question: "Can I book flights with flexible cancellation?",
-    answer: "Yes, we offer flexible booking options. Look for flights with free cancellation or change policies. Many airlines now offer more flexible terms, especially for premium fare classes."
+    answer:
+      "Yes, we offer flexible booking options. Look for flights with free cancellation or change policies. Many airlines now offer more flexible terms, especially for premium fare classes.",
   },
   {
     question: "What payment methods do you accept?",
-    answer: "We accept all major credit cards, debit cards, PayPal, Apple Pay, Google Pay, and bank transfers. Some airlines may have specific payment requirements for certain routes."
+    answer:
+      "We accept all major credit cards, debit cards, PayPal, Apple Pay, Google Pay, and bank transfers. Some airlines may have specific payment requirements for certain routes.",
   },
   {
     question: "How do I find eco-friendly flight options?",
-    answer: "Use our sustainability filter to find flights with lower carbon emissions. We show CO2 estimates for each flight and highlight airlines with newer, more fuel-efficient aircraft."
+    answer:
+      "Use our sustainability filter to find flights with lower carbon emissions. We show CO2 estimates for each flight and highlight airlines with newer, more fuel-efficient aircraft.",
   },
   {
     question: "Can I book seats and meals during the search?",
-    answer: "While searching, you can see available seat options and meal preferences. Final seat selection and special meal requests are typically completed during the booking process with the airline."
+    answer:
+      "While searching, you can see available seat options and meal preferences. Final seat selection and special meal requests are typically completed during the booking process with the airline.",
   },
   {
     question: "What happens if my flight gets cancelled?",
-    answer: "We'll immediately notify you of any cancellations and help you find alternative flights. You're entitled to a full refund or rebooking, and we'll guide you through the process with the airline."
-  }
-]
+    answer:
+      "We'll immediately notify you of any cancellations and help you find alternative flights. You're entitled to a full refund or rebooking, and we'll guide you through the process with the airline.",
+  },
+];
+export const popularRoutes = [
+  {
+    numId: 1,
+    id: "london-istanbul",
+    image:
+      "https://images.pexels.com/photos/18394961/pexels-photo-18394961.jpeg",
+    location1: "London",
+    location2: "Istanbul",
+    imageQuery: "Istanbul Bosphorus bridge sunset skyline",
+  },
+  {
+    numId: 2,
+    id: "london-barcelona",
+    image:
+      "https://images.pexels.com/photos/17606619/pexels-photo-17606619.jpeg",
+    location1: "London",
+    location2: "Barcelona",
+    imageQuery: "Barcelona Park Güell colorful mosaic architecture",
+  },
+  {
+    numId: 3,
+    id: "london-tirana",
+    image:
+      "https://images.pexels.com/photos/16429019/pexels-photo-16429019.jpeg",
+    location1: "London",
+    location2: "Tirana",
+    imageQuery: "Tirana Albania government building architecture",
+  },
+  {
+    numId: 4,
+    id: "london-jeddah",
+    image:
+      "https://images.pexels.com/photos/16589574/pexels-photo-16589574.jpeg",
+    location1: "London",
+    location2: "Jeddah",
+    imageQuery: "Jeddah Saudi Arabia King Fahd Fountain waterfront",
+  },
+  {
+    numId: 5,
+    id: "istanbul-london",
+    image:
+      "https://images.pexels.com/photos/18394961/pexels-photo-18394961.jpeg",
+    location1: "Istanbul",
+    location2: "London",
+    imageQuery: "London Thames river Big Ben Tower Bridge skyline",
+  },
+  {
+    numId: 6,
+    id: "london-athens",
+    image:
+      "https://images.pexels.com/photos/16680001/pexels-photo-16680001.jpeg",
+    location1: "London",
+    location2: "Athens",
+    imageQuery: "Athens Acropolis Parthenon ancient Greek temple",
+  },
+  {
+    numId: 7,
+    id: "london-paris",
+    image:
+      "https://images.pexels.com/photos/15907217/pexels-photo-15907217.jpeg",
+    location1: "London",
+    location2: "Paris",
+    imageQuery: "Paris Eiffel Tower Champs-Élysées cityscape",
+  },
+  {
+    numId: 8,
+    id: "london-lisbon",
+    image:
+      "https://images.pexels.com/photos/16429019/pexels-photo-16429019.jpeg",
+    location1: "London",
+    location2: "Lisbon",
+    imageQuery: "Lisbon Portugal colorful buildings Alfama district",
+  },
+  {
+    numId: 9,
+    id: "london-bucharest",
+    image:
+      "https://images.pexels.com/photos/17606619/pexels-photo-17606619.jpeg",
+    location1: "London",
+    location2: "Bucharest",
+    imageQuery: "Bucharest Romanian Athenaeum neoclassical architecture",
+  },
+  {
+    numId: 10,
+    id: "london-rome",
+    image:
+      "https://images.pexels.com/photos/16680001/pexels-photo-16680001.jpeg",
+    location1: "London",
+    location2: "Rome",
+    imageQuery: "Rome Colosseum ancient Roman amphitheater",
+  },
+  {
+    numId: 11,
+    id: "london-prague",
+    image:
+      "https://images.pexels.com/photos/15907217/pexels-photo-15907217.jpeg",
+    location1: "London",
+    location2: "Prague",
+    imageQuery: "Prague Czech Republic castle Charles Bridge Vltava river",
+  },
+  {
+    numId: 12,
+    id: "london-malaga",
+    image:
+      "https://images.pexels.com/photos/16429019/pexels-photo-16429019.jpeg",
+    location1: "London",
+    location2: "Málaga",
+    imageQuery: "Málaga Spain Mediterranean coast Alcazaba fortress",
+  },
+];

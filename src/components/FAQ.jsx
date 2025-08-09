@@ -16,8 +16,8 @@ export const FAQ=()=> {
   }
 
   return (
-    <section className="w-full py-16 px-4 bg-white">
-      <div className="max-w-6xl mx-auto">
+    <section className="w-full py-16 px-4">
+      <div className="max-w-7xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
         <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
           Flight Search & Booking Guide
         </h2>
@@ -52,7 +52,7 @@ export const FAQ=()=> {
           ))}
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-200">
+        <div className="mt-16 pt-8 border-t border-purple-600 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">
             Our Global Flight Network
           </h3>

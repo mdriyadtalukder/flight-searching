@@ -6,6 +6,8 @@ import {
 } from "../../rtk-query/features/flights/flightsApi";
 import FlightCard from "../../components/FlightCard";
 import useAccessToken from "../../hooks/useAccessToken";
+import Loading from "../../components/Loading";
+import { SearchBox } from "../../components/SearchBox";
 
 const Flights = () => {
   const { origin, destination, departureDate, returnDate, passengers } =
@@ -25,10 +27,12 @@ const Flights = () => {
     passengers: 1,
     accessToken: token,
   });
+  console.log(origin, destination, departureDate, returnDate, passengers);
+  console.log("Token:", token);
   console.log(data?.data);
 
-  let content;
-  if (isLoading) content = <p>Loading...</p>;
+  let content = null;
+  if (isLoading) content = <Loading isLoad={isLoading}></Loading>;
   if (!isLoading && isError) content = <p>{err?.message}</p>;
   if (!isLoading && !isError && data?.data?.length === 0)
     content = <p>No data</p>;
@@ -39,7 +43,8 @@ const Flights = () => {
   }
 
   return (
-    <div className="min-h-screen bg-purple-100 p-4 lg:p-6">
+    <div className="min-h-screen bg-purple-200 p-4 lg:p-6">
+      <SearchBox></SearchBox>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-6 text-center">

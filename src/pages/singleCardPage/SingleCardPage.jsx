@@ -22,6 +22,7 @@ import {
   CreditCard,
   Utensils,
 } from "lucide-react";
+import Loading from "../../components/Loading";
 
 const SingleCardPage = () => {
   const { id } = useParams();
@@ -45,7 +46,7 @@ const SingleCardPage = () => {
   console.log(data?.data);
 
   let flightData;
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading isLoad={isLoading}></Loading>;
   if (!isLoading && isError) return <p>{err?.message}</p>;
   if (!isLoading && !isError && data?.data?.length === 0)
     flightData = <p>No data</p>;

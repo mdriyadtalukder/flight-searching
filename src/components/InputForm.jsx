@@ -1,10 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Calendar, MapPin, Users, Plane, ArrowLeftRight } from "lucide-react";
+import {
+  Calendar,
+  MapPin,
+  Users,
+  Plane,
+  ArrowLeftRight,
+  X,
+} from "lucide-react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { locations } from "../assets/data";
 import SimpleDateInput from "./SimpleDateInput";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getdepartureDate,
   getdestination,
@@ -13,7 +20,10 @@ import {
   getreturnDate,
 } from "../rtk-query/features/flights/flightsSlice";
 import { useNavigate } from "react-router-dom";
-const InputForm = () => {
+import Navbar from "./Navbar";
+import { Button } from "./ui/button";
+const InputForm = ({ onClose, isVisible, initialSearchData, ok }) => {
+  const [searchData, setSearchData] = useState(initialSearchData);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDropdownOpen2, setIsDropdownOpen2] = useState(false);
   const dropdownRef = useRef(null);
@@ -22,14 +32,16 @@ const InputForm = () => {
   const [showPassengerDropdown, setShowPassengerDropdown] = useState(false);
   const dispatch = useDispatch();
   const nagivate = useNavigate();
+  const { origin, destination, departureDate, returnDate, passengers } =
+    useSelector((state) => state.flights);
 
   const formik = useFormik({
     initialValues: {
-      origin: "",
-      destination: "",
-      departureDate: "",
-      returnDate: "",
-      passengers: 1,
+      origin: origin || "",
+      destination: destination || "",
+      departureDate: departureDate || "",
+      returnDate: returnDate || "",
+      passengers: passengers || 1,
     },
     validationSchema: Yup.object({
       origin: Yup.string().required("Origin is required"),
@@ -61,8 +73,8 @@ const InputForm = () => {
     }),
     onSubmit: (values) => {
       console.log("Form submitted:", { ...values, tripType });
-      dispatch(getOrigin(values?.origin.toUpperCase()));
-      dispatch(getdestination(values?.destination.toUpperCase()));
+      dispatch(getOrigin(values?.origin));
+      dispatch(getdestination(values?.destination));
       dispatch(getdepartureDate(values?.departureDate));
       dispatch(getreturnDate(values?.returnDate));
       dispatch(getpassengers(values?.passengers));
@@ -143,32 +155,49 @@ const InputForm = () => {
     };
   }, []);
 
+  const handleCloseClick = () => {
+    onClose(searchData); // Pass current data back on close
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500">
+   <div id="searching" className={`min-h-screen ${ok?"from-purple-200":"bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500"}`}>
+      {" "}
       {/* Header */}
       <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center justify-center mb-12">
+        {/* <div className="flex items-center justify-center mb-12">
           <div className="flex items-center space-x-3">
             <div className="bg-white rounded-full p-3">
               <Plane className="w-8 h-8 text-purple-600" />
             </div>
             <h1 className="text-4xl font-bold text-white">SkySearch</h1>
           </div>
-        </div>
-
+        </div> */}
         {/* Main Search Form */}
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl shadow-2xl p-8">
-            <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
-              Find Your Perfect Flight
-            </h2>
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-3xl font-bold text-gray-800 text-center flex-1">
+                Find Your Perfect Flight
+              </h2>
+
+              {ok && (
+                <Button
+                  variant="ghost"
+                  size="md" // medium size (if your Button supports size prop)
+                  className="rounded-full p-4 hover:bg-gray-100 ml-4"
+                  onClick={handleCloseClick}
+                >
+                  <X className="w-12 h-12" /> {/* bigger icon size */}
+                </Button>
+              )}
+            </div>
 
             {/* Trip Type Selector */}
             <div className="flex space-x-4 mb-8">
               <button
                 type="button"
                 onClick={() => setTripType("round-trip")}
-                className={`px-6 py-3 rounded-full font-semibold transition-all ${
+                className={`px-6 py-3 cursor-pointer rounded-full font-semibold transition-all ${
                   tripType === "round-trip"
                     ? "bg-purple-600 text-white shadow-lg"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -179,7 +208,7 @@ const InputForm = () => {
               <button
                 type="button"
                 onClick={() => setTripType("one-way")}
-                className={`px-6 py-3 rounded-full font-semibold transition-all ${
+                className={`px-6 py-3 rounded-full cursor-pointer font-semibold transition-all ${
                   tripType === "one-way"
                     ? "bg-purple-600 text-white shadow-lg"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -453,7 +482,7 @@ const InputForm = () => {
               <div className="flex justify-center pt-6">
                 <button
                   type="submit"
-                  className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-12 rounded-xl text-xl transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
+                  className="bg-purple-600 hover:bg-purple-700 cursor-pointer text-white font-bold py-4 px-12 rounded-xl text-xl transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   Search Flights
                 </button>
