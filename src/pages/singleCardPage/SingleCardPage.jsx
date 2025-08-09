@@ -10,7 +10,6 @@ import {
   CardTitle,
 } from "../../components/ui/card";
 import { Badge } from "../../components/ui/badge";
-import { Button } from "../../components/ui/button";
 import {
   Plane,
   Clock,
@@ -63,7 +62,6 @@ const SingleCardPage = () => {
   const totalPrice = flightData?.price.total;
   const currency = flightData?.price?.currency;
 
-  // Format time from ISO string
   const formatTime = (isoString) => {
     return new Date(isoString)?.toLocaleTimeString("en-US", {
       hour: "2-digit",
@@ -72,7 +70,6 @@ const SingleCardPage = () => {
     });
   };
 
-  // Format date from ISO string
   const formatDate = (isoString) => {
     return new Date(isoString)?.toLocaleDateString("en-US", {
       weekday: "short",
@@ -82,7 +79,6 @@ const SingleCardPage = () => {
     });
   };
 
-  // Calculate duration in a readable format
   const formatDuration = (duration) => {
     const match = duration?.match(/PT(?:(\d+)H)?(?:(\d+)M)?/);
     if (!match) return duration;
@@ -107,7 +103,6 @@ const SingleCardPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-200 via-purple-100 to-blue-200 p-4 lg:p-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <Link
             variant="ghost"
@@ -128,9 +123,7 @@ const SingleCardPage = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Flight Information */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Flight Overview Card */}
             <Card className="shadow-lg border-0 bg-white/90">
               <CardHeader>
                 <CardTitle className="flex items-center gap-4">
@@ -153,7 +146,6 @@ const SingleCardPage = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between mb-8">
-                  {/* Departure */}
                   <div className="text-left">
                     <p className="text-4xl font-extrabold text-gray-900">
                       {formatTime(departure?.at)}
@@ -172,7 +164,6 @@ const SingleCardPage = () => {
                     </p>
                   </div>
 
-                  {/* Flight Path */}
                   <div className="flex-1 flex flex-col items-center px-8">
                     <div className="flex items-center gap-2 text-base text-gray-500 mb-2">
                       <Clock className="w-5 h-5" />
@@ -193,7 +184,6 @@ const SingleCardPage = () => {
                     </p>
                   </div>
 
-                  {/* Arrival */}
                   <div className="text-right">
                     <p className="text-4xl font-extrabold text-gray-900">
                       {formatTime(arrival?.at)}
@@ -215,7 +205,6 @@ const SingleCardPage = () => {
               </CardContent>
             </Card>
 
-            {/* Flight Segments */}
             <Card className="shadow border-0 bg-white/90">
               <CardHeader>
                 <CardTitle className="text-lg font-semibold text-purple-800">
@@ -283,7 +272,6 @@ const SingleCardPage = () => {
               </CardContent>
             </Card>
 
-            {/* Amenities */}
             <Card className="shadow border-0 bg-white/90">
               <CardHeader>
                 <CardTitle className="text-lg font-semibold text-purple-800">
@@ -322,7 +310,6 @@ const SingleCardPage = () => {
               </CardContent>
             </Card>
 
-            {/* Baggage Information */}
             <Card className="shadow border-0 bg-white/90">
               <CardHeader>
                 <CardTitle className="text-lg font-semibold text-purple-800">
@@ -385,9 +372,7 @@ const SingleCardPage = () => {
             </Card>
           </div>
 
-          {/* Sidebar - Pricing and Booking */}
           <div className="space-y-8">
-            {/* Price Card */}
             <Card className="shadow-xl border-0 bg-gradient-to-br from-purple-300 to-blue-200">
               <CardHeader>
                 <CardTitle className="text-lg font-semibold text-purple-800">
@@ -443,7 +428,6 @@ const SingleCardPage = () => {
               </CardContent>
             </Card>
 
-            {/* Flight Info */}
             <Card className="shadow border-0 bg-white/90">
               <CardHeader>
                 <CardTitle className="text-lg font-semibold text-purple-800">

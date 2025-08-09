@@ -18,16 +18,13 @@ export const SearchBox = () => {
   const formatDisplayText = () => {
     const parts = [];
 
-    // Add "fromLocation - toLocation" only if fromLocation or toLocation exists
     if (displayedSearchData.fromLocation || displayedSearchData.toLocation) {
       const from = displayedSearchData.fromLocation || "";
       const to = displayedSearchData.toLocation || "";
 
-      // If both exist, join with ' - ', else show whichever exists
       parts.push(from && to ? `${from} - ${to}` : from || to);
     }
 
-    // Add dateRange if departDate exists
     if (displayedSearchData.departDate) {
       const dateRange =
         displayedSearchData.returnDate &&
@@ -38,12 +35,10 @@ export const SearchBox = () => {
       parts.push(dateRange);
     }
 
-    // Add passengers if exists
     if (displayedSearchData.passengers) {
       parts.push(displayedSearchData.passengers);
     }
 
-    // Join all parts with ' • '
     return parts.length > 1 ? parts.join(" • ") : "";
   };
 
@@ -51,19 +46,15 @@ export const SearchBox = () => {
     setIsExpanded(true);
   };
 
-  // This function now handles both closing the form and triggering the search
   const handleFormClose = (currentSearchData) => {
-    setDisplayedSearchData(currentSearchData); // Update displayed data with the form's final state
-    setIsExpanded(false); // Close the form
+    setDisplayedSearchData(currentSearchData); 
+    setIsExpanded(false); 
 
-    // Trigger search logic here, as the form is now closed and data is ready
     console.log("Search triggered with:", currentSearchData);
-    // In a real app, you would likely navigate or fetch data here
   };
 
   return (
     <div className="w-full max-w-4xl mx-auto p-4">
-      {/* Compact Input Display */}
       <div
         className={`transition-all duration-300 ease-in-out ${
           isExpanded
@@ -84,13 +75,12 @@ export const SearchBox = () => {
         </div>
       </div>
 
-      {/* Imported Search Form Component */}
       {isExpanded && (
         <InputForm
-          onClose={handleFormClose} // Only pass the onClose callback
+          onClose={handleFormClose} 
           isVisible={isExpanded}
           initialSearchData={displayedSearchData}
-          ok={true} // Pass current displayed data to pre-fill the form
+          ok={true} 
         />
       )}
     </div>

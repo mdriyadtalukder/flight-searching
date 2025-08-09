@@ -46,7 +46,6 @@ const Flights = () => {
     <div className="min-h-screen bg-purple-200 p-4 lg:p-6">
       <SearchBox></SearchBox>
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="mb-6 text-center">
           <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
             Flight Search Results
@@ -57,12 +56,10 @@ const Flights = () => {
           </p>
         </div>
 
-        {/* Responsive Grid - 1 col mobile, 2 col tablet, 3 col desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
           {content}
         </div>
 
-        {/* Load More Button */}
       </div>
     </div>
   );

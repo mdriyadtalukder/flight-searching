@@ -25,7 +25,6 @@ const SimpleDateInput = ({ value, onChange, placeholder = "Select date" }) => {
   );
   const firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", new Date());
 
-  // Get full calendar grid (6 weeks = 42 days)
   const days = eachDayOfInterval({
     start: startOfWeek(startOfMonth(firstDayCurrentMonth)),
     end: endOfWeek(endOfMonth(firstDayCurrentMonth)),
@@ -86,7 +85,6 @@ const SimpleDateInput = ({ value, onChange, placeholder = "Select date" }) => {
 
       {isOpen && (
         <div className="absolute bottom-full left-0 mb-2 z-50 bg-white rounded-xl p-6 shadow-xl border border-red-200 min-w-[320px]">
-          {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-lg font-semibold text-gray-900">
               {format(firstDayCurrentMonth, "MMMM yyyy")}
@@ -109,7 +107,6 @@ const SimpleDateInput = ({ value, onChange, placeholder = "Select date" }) => {
             </div>
           </div>
 
-          {/* Weekday Headers */}
           <div className="grid grid-cols-7 mb-2 text-xs leading-6 text-center text-gray-500 font-medium">
             <div className="py-2">Su</div>
             <div className="py-2">Mo</div>
@@ -120,7 +117,6 @@ const SimpleDateInput = ({ value, onChange, placeholder = "Select date" }) => {
             <div className="py-2">Sa</div>
           </div>
 
-          {/* Full Calendar Grid - 6 weeks */}
           <div className="grid grid-cols-7 text-sm">
             {days.map((day, dayIdx) => (
               <div key={day.toString()} className="py-1">
@@ -128,12 +124,10 @@ const SimpleDateInput = ({ value, onChange, placeholder = "Select date" }) => {
                   type="button"
                   onClick={() => handleDateSelect(day)}
                   className={`mx-auto flex h-9 w-9 items-center justify-center rounded-full text-sm transition-all hover:bg-gray-100 ${
-                    // Selected date - Purple background with white text
                     value && isEqual(day, value)
                       ? "bg-purple-600 text-white font-semibold hover:bg-purple-700"
                       : ""
                   } ${
-                    // Today (when not selected) - Purple text
                     !value && isToday(day)
                       ? "text-purple-600 font-semibold"
                       : ""
@@ -142,14 +136,12 @@ const SimpleDateInput = ({ value, onChange, placeholder = "Select date" }) => {
                       ? "text-purple-600 font-semibold"
                       : ""
                   } ${
-                    // Current month days
                     isSameMonth(day, firstDayCurrentMonth) &&
                     !isToday(day) &&
                     (!value || !isEqual(day, value))
                       ? "text-gray-900"
                       : ""
                   } ${
-                    // Previous/next month days (outside current month)
                     !isSameMonth(day, firstDayCurrentMonth)
                       ? "text-gray-400"
                       : ""

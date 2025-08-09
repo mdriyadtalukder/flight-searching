@@ -156,23 +156,20 @@ const InputForm = ({ onClose, isVisible, initialSearchData, ok }) => {
   }, []);
 
   const handleCloseClick = () => {
-    onClose(searchData); // Pass current data back on close
+    onClose(searchData);
   };
 
   return (
-   <div id="searching" className={`min-h-screen ${ok?"from-purple-200":"bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500"}`}>
+    <div
+      id="searching"
+      className={`min-h-screen ${
+        ok
+          ? "from-purple-200"
+          : "bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500"
+      }`}
+    >
       {" "}
-      {/* Header */}
       <div className="container mx-auto px-4 py-8">
-        {/* <div className="flex items-center justify-center mb-12">
-          <div className="flex items-center space-x-3">
-            <div className="bg-white rounded-full p-3">
-              <Plane className="w-8 h-8 text-purple-600" />
-            </div>
-            <h1 className="text-4xl font-bold text-white">SkySearch</h1>
-          </div>
-        </div> */}
-        {/* Main Search Form */}
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-2xl shadow-2xl p-8">
             <div className="flex items-center justify-between mb-8">
@@ -183,16 +180,15 @@ const InputForm = ({ onClose, isVisible, initialSearchData, ok }) => {
               {ok && (
                 <Button
                   variant="ghost"
-                  size="md" // medium size (if your Button supports size prop)
+                  size="md"
                   className="rounded-full p-4 hover:bg-gray-100 ml-4"
                   onClick={handleCloseClick}
                 >
-                  <X className="w-12 h-12" /> {/* bigger icon size */}
+                  <X className="w-12 h-12" />
                 </Button>
               )}
             </div>
 
-            {/* Trip Type Selector */}
             <div className="flex space-x-4 mb-8">
               <button
                 type="button"
@@ -218,9 +214,7 @@ const InputForm = ({ onClose, isVisible, initialSearchData, ok }) => {
               </button>
             </div>
 
-            {/* Form */}
             <form onSubmit={formik.handleSubmit} className="space-y-6">
-              {/* Origin and Destination */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div className="relative " ref={dropdownRef}>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -247,15 +241,13 @@ const InputForm = ({ onClose, isVisible, initialSearchData, ok }) => {
                     <div className="absolute z-10 w-full mt-1 bg-white border-2 border-gray-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
                       {originLocation.map((location) => (
                         <button
-                          onClick={
-                            () => {
-                              formik.setFieldValue(
-                                "origin",
-                                location?.name?.substring(0, 3).toUpperCase()
-                              );
-                              setIsDropdownOpen(false);
-                            } // close after selecting
-                          }
+                          onClick={() => {
+                            formik.setFieldValue(
+                              "origin",
+                              location?.name?.substring(0, 3).toUpperCase()
+                            );
+                            setIsDropdownOpen(false);
+                          }}
                           type="button"
                           className="w-full px-4 py-3 text-left hover:bg-purple-50 focus:bg-purple-50 focus:outline-none border-b border-gray-100 last:border-b-0 flex items-center gap-2 transition-colors cursor-pointer"
                         >
@@ -305,15 +297,13 @@ const InputForm = ({ onClose, isVisible, initialSearchData, ok }) => {
                     <div className="absolute z-10 w-full mt-1 bg-white border-2 border-gray-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
                       {desLocation.map((location) => (
                         <button
-                          onClick={
-                            () => {
-                              formik.setFieldValue(
-                                "destination",
-                                location?.name?.substring(0, 3).toUpperCase()
-                              );
-                              setIsDropdownOpen2(false);
-                            } // close after selecting
-                          }
+                          onClick={() => {
+                            formik.setFieldValue(
+                              "destination",
+                              location?.name?.substring(0, 3).toUpperCase()
+                            );
+                            setIsDropdownOpen2(false);
+                          }}
                           type="button"
                           className="w-full px-4 py-3 text-left hover:bg-purple-50 focus:bg-purple-50 focus:outline-none border-b border-gray-100 last:border-b-0 flex items-center gap-2 transition-colors cursor-pointer"
                         >
@@ -339,7 +329,6 @@ const InputForm = ({ onClose, isVisible, initialSearchData, ok }) => {
                 </div>
               </div>
 
-              {/* Swap Button */}
               <div className="flex justify-center -my-2">
                 <button
                   type="button"
@@ -350,7 +339,6 @@ const InputForm = ({ onClose, isVisible, initialSearchData, ok }) => {
                 </button>
               </div>
 
-              {/* Dates and Passengers */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 <div className="relative">
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -361,7 +349,6 @@ const InputForm = ({ onClose, isVisible, initialSearchData, ok }) => {
                     <SimpleDateInput
                       value={formik.values.departureDate}
                       onChange={(date) => {
-                        // Convert to yyyy-mm-dd
                         const d = new Date(date);
                         const yyyy = d.getFullYear();
                         const mm = String(d.getMonth() + 1).padStart(2, "0");
@@ -392,7 +379,6 @@ const InputForm = ({ onClose, isVisible, initialSearchData, ok }) => {
                       <SimpleDateInput
                         value={formik.values.returnDate}
                         onChange={(date) => {
-                          // Convert to yyyy-mm-dd
                           const d = new Date(date);
                           const yyyy = d.getFullYear();
                           const mm = String(d.getMonth() + 1).padStart(2, "0");
@@ -478,7 +464,6 @@ const InputForm = ({ onClose, isVisible, initialSearchData, ok }) => {
                 </div>
               </div>
 
-              {/* Search Button */}
               <div className="flex justify-center pt-6">
                 <button
                   type="submit"

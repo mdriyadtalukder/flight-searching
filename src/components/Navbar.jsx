@@ -18,7 +18,6 @@ export default function NavBar() {
     <nav className="bg-while w-[90%] mx-auto bg-white rounded-4xl  backdrop-blur-md  sticky top-0 z-50 shadow-2xl">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo and Brand */}
           <Link to="/" className="flex items-center space-x-3">
             <div className="bg-purple-600 rounded-full p-2">
               <Plane className="w-6 h-6 text-white" />
@@ -26,7 +25,6 @@ export default function NavBar() {
             <h1 className="text-2xl font-bold text-purple-600">SkySearch</h1>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#"
@@ -60,9 +58,7 @@ export default function NavBar() {
             </a>
           </div>
 
-          {/* Right Side Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* Language Selector */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -82,7 +78,6 @@ export default function NavBar() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Notifications */}
             <Button
               variant="ghost"
               size="sm"
@@ -94,7 +89,6 @@ export default function NavBar() {
               </Badge>
             </Button>
 
-            {/* User Menu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -116,7 +110,6 @@ export default function NavBar() {
             </DropdownMenu>
           </div>
 
-          {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="sm"
@@ -131,7 +124,6 @@ export default function NavBar() {
           </Button>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden bg-purple-600/10 backdrop-blur-md border-t border-purple-600/20">
             <div className="px-4 py-4 space-y-3">

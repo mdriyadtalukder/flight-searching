@@ -7,9 +7,7 @@ const Footer = () => {
 return (
     <footer className="bg-white border-t border-gray-200">
       <div className="container mx-auto px-4 py-12">
-        {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="bg-purple-600 p-2 rounded-lg">
@@ -37,7 +35,6 @@ return (
             </div>
           </div>
 
-          {/* Quick Links */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-900">Quick Links</h3>
             <ul className="space-y-2">
@@ -69,7 +66,6 @@ return (
             </ul>
           </div>
 
-          {/* Destinations */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-900">Popular Destinations</h3>
             <ul className="space-y-2">
@@ -101,7 +97,6 @@ return (
             </ul>
           </div>
 
-          {/* Newsletter */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-900">Stay Updated</h3>
             <p className="text-gray-600 text-sm">Subscribe to get the latest flight deals and travel tips.</p>
@@ -116,7 +111,6 @@ return (
           </div>
         </div>
 
-        {/* Contact Info */}
         <div className="border-t border-gray-200 pt-8 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-center space-x-3">
@@ -149,7 +143,6 @@ return (
           </div>
         </div>
 
-        {/* Bottom Section */}
         <div className="border-t border-gray-200 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-wrap gap-6">
